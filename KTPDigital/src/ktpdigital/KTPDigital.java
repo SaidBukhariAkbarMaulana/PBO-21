@@ -11,12 +11,13 @@ public class KTPDigital {
 
     public static void main(String[] args) {
         while (true) {
-            System.out.println("\n===== >>> Menu <<< =====");
-            System.out.println("| 1. Menambah Data     | ");
-            System.out.println("| 2. Melihat Data      | ");
-            System.out.println("| 3. Mengubah Data     | ");
-            System.out.println("| 4. Menghapus Data    | ");
-            System.out.println("| 5. Keluar Program    |");
+            System.out.println("\nProgram Pendataan KTP Digital Online ");
+            System.out.println("====================================");
+            System.out.println("| 1. Menambah Data                 | ");
+            System.out.println("| 2. Melihat Data                  | ");
+            System.out.println("| 3. Mengubah Data                 | ");
+            System.out.println("| 4. Menghapus Data                | ");
+            System.out.println("| 5. Keluar Program                |");
                 
 
             System.out.print("Pilihan: ");

@@ -1,2 +1,0 @@
-ktpdigital.KTPDigital
-ktpdigital.Data
