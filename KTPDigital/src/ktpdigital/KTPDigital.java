@@ -68,19 +68,20 @@ public class KTPDigital {
     }
 
     static void showData() {// Fungsi showData()  untuk melihat data 
-        System.out.println("\nProgram Pendataan KTP Digital Online ");
+        System.out.println("\n Data Pendataan KTP Digital Online ");
         System.out.println("====================================");
         if (dataList.isEmpty()) {
             System.out.println("Belum ada data!");
         } else {
             for (int i = 0; i < dataList.size(); i++) {
-                System.out.println("Data ke-" + (i + 1));
+                System.out.println("\nData ke-" + (i + 1));
+                System.out.println("====================================");
                 System.out.println("Nama          : " + dataList.get(i).getName());
                 System.out.println("Tanggal Lahir : " + dataList.get(i).getTanggalLahir());
                 System.out.println("Agama         : " + dataList.get(i).getAgama());
                 System.out.println("RT            : " + dataList.get(i).getRt());
                 System.out.println("Tinggi        : " + dataList.get(i).getTinggi());
-                System.out.println();
+                System.out.println("====================================");
             }
         }
     }
