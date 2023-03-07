@@ -18,8 +18,7 @@ public class KTPDigital {
             System.out.println("| 3. Mengubah Data                 | ");
             System.out.println("| 4. Menghapus Data                | ");
             System.out.println("| 5. Keluar Program                |");
-                
-
+            System.out.println("====================================");
             System.out.print("Pilihan: ");
             int choice = scanner.nextInt();
 
@@ -46,6 +45,8 @@ public class KTPDigital {
     }
 
     static void addData() { // // Fungsi addData()  untuk melakukan penambahan data 
+        System.out.println("\n\tMenu Menambahkan Data ");
+        System.out.println("====================================");
         System.out.print("Masukkan Nama : ");
         scanner.nextLine(); // utk membuang newline (enter)
         String name = scanner.next();
@@ -55,22 +56,23 @@ public class KTPDigital {
         System.out.print("Masukkan Agama :  ");
         scanner.nextLine(); 
         String Agama = scanner.next();
-        System.out.print("RT : ");
+        System.out.print("Masukkan RT : ");
         int rt = scanner.nextInt();
-        System.out.print("Tinggi: ");
+        System.out.print("Masukkan Tinggi: ");
         double tinggi = scanner.nextDouble();
 
         Data data = new Data(name, tanggalLahir, Agama, rt, tinggi);
         dataList.add(data);
+        System.out.println("====================================");
         System.out.println("Data berhasil ditambahkan!");
     }
 
     static void showData() {// Fungsi showData()  untuk melihat data 
-        System.out.println("\nData KTP Digital Online\n");
+        System.out.println("\nProgram Pendataan KTP Digital Online ");
+        System.out.println("====================================");
         if (dataList.isEmpty()) {
-            System.out.println("\nBelum ada data!");
+            System.out.println("Belum ada data!");
         } else {
-            System.out.println("===== DATA =====");
             for (int i = 0; i < dataList.size(); i++) {
                 System.out.println("Data ke-" + (i + 1));
                 System.out.println("Nama          : " + dataList.get(i).getName());
@@ -93,6 +95,8 @@ public class KTPDigital {
             if (index < 0 || index >= dataList.size()) {
                 System.out.println("Nomor data tidak valid!");
             } else {
+                System.out.println("\n\tMenu Mengubah Data ");
+                System.out.println("====================================");
                 System.out.print("Masukkan Nama baru : ");
                 String name = scanner.next();
 
@@ -110,7 +114,7 @@ public class KTPDigital {
 
                 Data data = new Data(name, tanggalLahir, Agama, rt, tinggi);
                 dataList.set(index, data);
-
+                System.out.println("====================================");
                 System.out.println("Data berhasil diupdate!");
             }
         }
@@ -120,6 +124,8 @@ public class KTPDigital {
         if (dataList.isEmpty()) {
             System.out.println("\nBelum ada data!");
         } else {
+            System.out.println("\n\tMenu Menghapus Data ");
+            System.out.println("====================================");
             System.out.print("Nomor data yang akan dihapus: ");
             int index = scanner.nextInt() - 1;
 
@@ -127,6 +133,7 @@ public class KTPDigital {
                 System.out.println("Nomor data tidak valid!");
             } else {
                 dataList.remove(index);
+                System.out.println("====================================");
                 System.out.println("Data berhasil dihapus!");
                 }
            }
