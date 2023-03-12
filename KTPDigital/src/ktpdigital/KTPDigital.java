@@ -1,7 +1,6 @@
-
 package ktpdigital;
 
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +8,7 @@ public class KTPDigital {
     static ArrayList<Data> dataList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         while (true) {
             System.out.println("\nProgram Pendataan KTP Digital Online ");
             System.out.println("====================================");
@@ -20,9 +19,9 @@ public class KTPDigital {
             System.out.println("| 5. Keluar Program                |");
             System.out.println("====================================");
             System.out.print("Pilihan: ");
-            int choice = scanner.nextInt();
+            int pilih = scanner.nextInt();
 
-            switch (choice) {
+            switch (pilih) {
                 case 1:
                     addData();
                     break;
@@ -44,7 +43,7 @@ public class KTPDigital {
         }
     }
 
-    static void addData() { // // Fungsi addData()  untuk melakukan penambahan data 
+    static void addData() { // // Fungsi addData() untuk melakukan penambahan data
         System.out.println("\n\tMenu Menambahkan Data ");
         System.out.println("====================================");
         System.out.print("Masukkan Nama : ");
@@ -53,8 +52,8 @@ public class KTPDigital {
         System.out.print("Masukkan Tanggal Lahir (DD/MM/YYYY): ");
         scanner.nextLine();
         String tanggalLahir = scanner.next();
-        System.out.print("Masukkan Agama :  ");
-        scanner.nextLine(); 
+        System.out.print("Masukkan Agama : ");
+        scanner.nextLine();
         String Agama = scanner.next();
         System.out.print("Masukkan RT : ");
         int rt = scanner.nextInt();
@@ -67,9 +66,9 @@ public class KTPDigital {
         System.out.println("Data berhasil ditambahkan!");
     }
 
-    static void showData() {// Fungsi showData()  untuk melihat data 
-        System.out.println("\n Data Pendataan KTP Digital Online ");
-        System.out.println("====================================");
+    static void showData() {// Fungsi showData() untuk melihat data
+        System.out.println("\n Data KTP Digital Online ");
+        System.out.println("=========================");
         if (dataList.isEmpty()) {
             System.out.println("Belum ada data!");
         } else {
@@ -86,10 +85,11 @@ public class KTPDigital {
         }
     }
 
-    static void updateData() {// Fungsi updateData()  untuk melakukan perubahan data 
+    static void updateData() {// Fungsi updateData() untuk melakukan perubahan data
         if (dataList.isEmpty()) {
             System.out.println("\nBelum ada data!");
         } else {
+            showData();
             System.out.print("Nomor data yang akan diupdate: ");
             int index = scanner.nextInt() - 1; // untuk mengambil input dari pengguna
 
@@ -106,7 +106,7 @@ public class KTPDigital {
 
                 System.out.print("Masukkan Agama baru : ");
                 String Agama = scanner.next();
-                
+
                 System.out.print("Masukkan RT baru : ");
                 int rt = scanner.nextInt();
 
@@ -121,10 +121,11 @@ public class KTPDigital {
         }
     }
 
-    static void deleteData() { // Fungsi deleteData()  untuk melakukan penghapusan data 
+    static void deleteData() { // Fungsi deleteData() untuk melakukan penghapusan data
         if (dataList.isEmpty()) {
             System.out.println("\nBelum ada data!");
         } else {
+            showData();
             System.out.println("\n\tMenu Menghapus Data ");
             System.out.println("====================================");
             System.out.print("Nomor data yang akan dihapus: ");
@@ -136,46 +137,7 @@ public class KTPDigital {
                 dataList.remove(index);
                 System.out.println("====================================");
                 System.out.println("Data berhasil dihapus!");
-                }
-           }
-    }
-}
-
-class Data { //digunakan untuk menyimpan informasi tentang objek-objek yang dibuat dalam program.
-    private String name; // atribut yang hanya bisa diakses di class yang sama
-    private String tanggalLahir;
-    private String agama;
-    private int rt;
-    private double tinggi;
- 
-// untuk membuat objek baru dari class dgn nilai atribut yang telah diinisialisasi pada saat objek dibuat.
-public Data(String name, String tanggalLahir, String agama, int rt, double tinggi) {
-        this.name = name; // untuk menginisialisasi atribut "name"
-        this.tanggalLahir = tanggalLahir;
-        this.agama = agama;
-        this.rt = rt;
-        this.tinggi = tinggi;
-}
-
-// untuk mendefinisikan sebuah method pada class "Data" yang akan mengembalikan nilai dari 
-// atribut "name" pada objek yang memanggil method tersebut.
-public String getName() {
-    return name;
-}
-
-public String getTanggalLahir() {
-    return tanggalLahir;
-}
-
-public String getAgama() {
-    return agama;
-}
-
-public int getRt() {
-    return rt;
-    }
-
-public double getTinggi() {
-    return tinggi;
+            }
+        }
     }
 }
