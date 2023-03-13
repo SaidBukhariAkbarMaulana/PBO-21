@@ -1,124 +1,143 @@
 package posttest2;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
+
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Posttest2 {
-    static InputStreamReader isr = new InputStreamReader(System.in);
-    static BufferedReader br = new BufferedReader(isr);
-    static ArrayList<Data> list = new ArrayList<>();
-    
-    public static void main(String[] args) throws IOException{
-        while(true){
-            System.out.println("Program Pendataan KTP Digital Online ");
+    static ArrayList<Data> dataList = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args){
+        while (true) {
+            System.out.println("\nProgram Pendataan KTP Digital Online ");
             System.out.println("====================================");
-            System.out.println("| 1. Menambah Data                 | ");
-            System.out.println("| 2. Melihat Data                  | ");
-            System.out.println("| 3. Mengubah Data                 | ");
-            System.out.println("| 4. Menghapus Data                | ");
+            System.out.println("| 1. Menambah Data                 |");
+            System.out.println("| 2. Melihat Data                  |");
+            System.out.println("| 3. Mengubah Data                 |");
+            System.out.println("| 4. Menghapus Data                |");
             System.out.println("| 5. Keluar Program                |");
             System.out.println("====================================");
             System.out.print("Pilihan: ");
-            int pilihan = Integer.parseInt(br.readLine());
-            switch (pilihan) {
-                case 1 -> tambah();
-                case 2 -> tampil();
-                case 3 -> ubah();
-                case 4 -> hapus();
-                case 5 -> System.exit(0);
-                default -> System.out.println("PILIHAN SALAH!");
+            int pilih = scanner.nextInt();
+
+            switch (pilih) {
+                case 1:
+                    addData();
+                    break;
+                case 2:
+                    showData();
+                    break;
+                case 3:
+                    updateData();
+                    break;
+                case 4:
+                    deleteData();
+                    break;
+                case 5:
+                    System.out.println("Terima kasih telah menggunakan program ini!");
+                    System.exit(0);
+                default:
+                    System.out.println("Pilihan tidak valid!");
             }
-            System.out.println("\n\n");
         }
     }
-    
-    static void tambah() throws IOException{
+
+    static void addData() { // // Fungsi addData() untuk melakukan penambahan data
         System.out.println("\n\tMenu Menambahkan Data ");
         System.out.println("====================================");
-        System.out.println("Masukkan Nama : ");
-        String nama = br.readLine();
-        
-        System.out.println("Masukkan Tanngal Lahir (DD/MM/YYYY) : ");
-        String tanggalLahir = br.readLine();
-        
-        System.out.println("Masukkan Agama : ");
-        String agama = br.readLine();
-        
-        System.out.println("Masukkan RT : ");
-        int rt = Integer.parseInt(br.readLine());
-        
-        System.out.println("Masukkan Tinggi : ");
-        float tinggi = Float.parseFloat(br.readLine());
-        
-        Data org = new Data(nama, tanggalLahir, agama, rt, tinggi);
-        list.add(org);
-        System.out.println("Data Berhasil Ditambahkan.");
+        System.out.print("Masukkan Nama : ");
+        scanner.nextLine(); // utk membuang newline (enter)
+        String name = scanner.next();
+        System.out.print("Masukkan Tanggal Lahir (DD/MM/YYYY): ");
+        scanner.nextLine();
+        String tanggalLahir = scanner.next();
+        System.out.print("Masukkan Agama : ");
+        scanner.nextLine();
+        String Agama = scanner.next();
+        System.out.print("Masukkan RT : ");
+        int rt = scanner.nextInt();
+        System.out.print("Masukkan Tinggi: ");
+        double tinggi = scanner.nextDouble();
+
+        Data data = new Data(name, tanggalLahir, Agama, rt, tinggi);
+        dataList.add(data);
+        System.out.println("====================================");
+        System.out.println("Data berhasil ditambahkan!");
     }
-    
-    static void tampil(){
+
+    static void showData() {// Fungsi showData() untuk melihat data
         System.out.println("\n Data KTP Digital Online ");
         System.out.println("=========================");
-        if (list.isEmpty()){
+        if (dataList.isEmpty()) {
             System.out.println("Belum ada data!");
-        }else{
-            for(int i = 0; i< list.size(); i++){
-                System.out.print("\nData ke-" + (i + 1));
-                System.out.println("\nNama          : " + list.get(i).getName());
-                System.out.println("Tanggal Lahir : " + list.get(i).getTanggalLahir());
-                System.out.println("Agama         : " + list.get(i).getAgama());
-                System.out.println("RT            : " + list.get(i).getRt());
-                System.out.println("Tinggi        : " + list.get(i).getTinggi());
+        } else {
+            for (int i = 0; i < dataList.size(); i++) {
+                System.out.println("\nData ke-" + (i + 1));
+                System.out.println("====================================");
+                System.out.println("Nama          : " + dataList.get(i).getName());
+                System.out.println("Tanggal Lahir : " + dataList.get(i).getTanggalLahir());
+                System.out.println("Agama         : " + dataList.get(i).getAgama());
+                System.out.println("RT            : " + dataList.get(i).getRt());
+                System.out.println("Tinggi        : " + dataList.get(i).getTinggi());
                 System.out.println("====================================");
             }
         }
     }
-    
-    static void ubah() throws IOException{
-        if (list.isEmpty()){
-            System.out.println("Belum ada data!");
-        }else{
-        tampil();
-        System.out.println("\n\tMenu Mengubah Data ");
-        System.out.println("====================================");
-        System.out.print("Nomor data yang akan diubah: ");
-        int pilihan = Integer.parseInt(br.readLine());
-        pilihan -=1;
-        
-        System.out.println("Mau Ubah Menjadi : ");
-        
-        System.out.println("Nama Baru: ");
-        list.get(pilihan).setName(br.readLine());
-        
-        System.out.println("Tanggal Lahir (DD/MM/YYYY) Baru: ");
-        list.get(pilihan).setTanggalLahir(br.readLine());
-        
-        System.out.println("Agama Baru: ");
-        list.get(pilihan).setAgama(br.readLine());
-        
-        System.out.println("RT Baru: ");
-        list.get(pilihan).setRt(Integer.parseInt(br.readLine()));
-        
-        System.out.println("Tinggi Baru: ");
-        list.get(pilihan).setTinggi(Float.parseFloat(br.readLine()));
-        
-        System.out.println("Data Berhasil Diubah...");
+
+    static void updateData() {// Fungsi updateData() untuk melakukan perubahan data
+        if (dataList.isEmpty()) {
+            System.out.println("\nBelum ada data!");
+        } else {
+            showData();
+            System.out.print("Nomor data yang akan diupdate: ");
+            int index = scanner.nextInt() - 1; // untuk mengambil input dari pengguna
+
+            if (index < 0 || index >= dataList.size()) {
+                System.out.println("Nomor data tidak valid!");
+            } else {
+                System.out.println("\n\tMenu Mengubah Data ");
+                System.out.println("====================================");
+                System.out.print("Masukkan Nama baru : ");
+                String name = scanner.next();
+
+                System.out.print("Masukkan Tanggal Lahir baru : ");
+                String tanggalLahir = scanner.next();
+
+                System.out.print("Masukkan Agama baru : ");
+                String Agama = scanner.next();
+
+                System.out.print("Masukkan RT baru : ");
+                int rt = scanner.nextInt();
+
+                System.out.print("Masukkan Tinggi baru : ");
+                double tinggi = scanner.nextDouble();
+
+                Data data = new Data(name, tanggalLahir, Agama, rt, tinggi);
+                dataList.set(index, data);
+                System.out.println("====================================");
+                System.out.println("Data berhasil diupdate!");
+            }
         }
-    } 
-    static void hapus() throws IOException{
-        if (list.isEmpty()){
-            System.out.println("Belum ada data!");
-        }else{
-        tampil();
-        System.out.println("\n\tMenu Menghapus Data ");
-        System.out.println("====================================");
-        System.out.print("Nomor data yang akan dihapus: ");
-        int pilihan = Integer.parseInt(br.readLine());
-        pilihan -=1;
-        
-        list.remove(pilihan);
-        System.out.println("Data berhasil dihapus!");
+    }
+
+    static void deleteData() { // Fungsi deleteData() untuk melakukan penghapusan data
+        if (dataList.isEmpty()) {
+            System.out.println("\nBelum ada data!");
+        } else {
+            showData();
+            System.out.println("\n\tMenu Menghapus Data ");
+            System.out.println("====================================");
+            System.out.print("Nomor data yang akan dihapus: ");
+            int index = scanner.nextInt() - 1;
+
+            if (index < 0 || index >= dataList.size()) {
+                System.out.println("Nomor data tidak valid!");
+            } else {
+                dataList.remove(index);
+                System.out.println("====================================");
+                System.out.println("Data berhasil dihapus!");
+            }
         }
-    } 
+    }
 }

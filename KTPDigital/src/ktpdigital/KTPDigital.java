@@ -1,6 +1,6 @@
 package ktpdigital;
 
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ public class KTPDigital {
     static ArrayList<Data> dataList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args){
         while (true) {
             System.out.println("\nProgram Pendataan KTP Digital Online ");
             System.out.println("====================================");
