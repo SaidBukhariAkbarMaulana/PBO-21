@@ -10,7 +10,7 @@ public class Posttest2 {
 
     public static void main(String[] args){
         while (true) {
-            System.out.println("\nProgram Pendataan KTP Digital Online ");
+            System.out.println("\nProgram Pendataan KTP Digital Online");
             System.out.println("====================================");
             System.out.println("| 1. Menambah Data                 |");
             System.out.println("| 2. Melihat Data                  |");

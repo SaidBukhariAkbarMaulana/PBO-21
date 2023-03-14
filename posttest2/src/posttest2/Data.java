@@ -18,26 +18,74 @@ class Data { // digunakan untuk menyimpan informasi tentang objek-objek yang dib
         this.tinggi = tinggi;
     }
 
-    // untuk mendefinisikan sebuah method pada class "Data" yang akan mengembalikan
-    // nilai dari
-    // atribut "name" pada objek yang memanggil method tersebut.
+    /**
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the tanggalLahir
+     */
     public String getTanggalLahir() {
         return tanggalLahir;
     }
 
+    /**
+     * @param tanggalLahir the tanggalLahir to set
+     */
+    public void setTanggalLahir(String tanggalLahir) {
+        this.tanggalLahir = tanggalLahir;
+    }
+
+    /**
+     * @return the agama
+     */
     public String getAgama() {
         return agama;
     }
 
+    /**
+     * @param agama the agama to set
+     */
+    public void setAgama(String agama) {
+        this.agama = agama;
+    }
+
+    /**
+     * @return the rt
+     */
     public int getRt() {
         return rt;
     }
 
+    /**
+     * @param rt the rt to set
+     */
+    public void setRt(int rt) {
+        this.rt = rt;
+    }
+
+    /**
+     * @return the tinggi
+     */
     public double getTinggi() {
         return tinggi;
     }
+
+    /**
+     * @param tinggi the tinggi to set
+     */
+    public void setTinggi(double tinggi) {
+        this.tinggi = tinggi;
+    }
+ 
 }
