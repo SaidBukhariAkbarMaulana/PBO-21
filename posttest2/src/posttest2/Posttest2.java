@@ -67,8 +67,8 @@ public class Posttest2 {
     }
 
     static void showData() {// Fungsi showData() untuk melihat data
-        System.out.println("\n Data KTP Digital Online ");
-        System.out.println("=========================");
+        System.out.println("\n\tData KTP Digital Online ");
+        System.out.println("====================================");
         if (dataList.isEmpty()) {
             System.out.println("Belum ada data!");
         } else {
@@ -114,7 +114,7 @@ public class Posttest2 {
                 double tinggi = scanner.nextDouble();
 
                 Data data = new Data(name, tanggalLahir, Agama, rt, tinggi);
-                dataList.set(index, data);
+                dataList.set(index, data); //ini setnya
                 System.out.println("====================================");
                 System.out.println("Data berhasil diupdate!");
             }
